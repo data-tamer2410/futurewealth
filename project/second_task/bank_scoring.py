@@ -70,10 +70,6 @@ def scoring(bank_data: dict) -> None | pd.DataFrame:
             confidence = 1 - indicator_value / threshold_low
             confidence = round(confidence, 2)
 
-            # Apply penalty if the indicator is significantly below the low threshold
-            if indicator_value < threshold_low / 2:
-                score -= penalty
-
         elif threshold_low <= indicator_value < threshold_high:
             cls = "Warning"
             score = score_medium

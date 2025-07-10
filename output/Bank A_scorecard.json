@@ -1,0 +1,33 @@
+{
+    "CET1 Ratio": {
+        "value": 13.2,
+        "score": 90.0,
+        "confidence": 0.55,
+        "class": "Good"
+    },
+    "Total Capital Ratio": {
+        "value": 16.5,
+        "score": 90.0,
+        "confidence": 0.52,
+        "class": "Good"
+    },
+    "Liquidity Coverage Ratio": {
+        "value": 127.0,
+        "score": 50.0,
+        "confidence": 0.2,
+        "class": "Warning"
+    },
+    "Net Stable Funding Ratio": {
+        "value": 109.0,
+        "score": 40.0,
+        "confidence": 0.2,
+        "class": "Warning"
+    },
+    "Tier 1 Ratio": {
+        "value": 14.4,
+        "score": 90.0,
+        "confidence": 0.51,
+        "class": "Good"
+    },
+    "Total Score": 360.0
+}

@@ -1,0 +1,22 @@
+{
+  "CET1 Ratio": {
+    "thresholds": [10, 12],
+    "scores": [0, 50, 100]
+  },
+  "Total Capital Ratio": {
+    "thresholds": [14, 16],
+    "scores": [0, 60, 100]
+  },
+  "Liquidity Coverage Ratio": {
+    "thresholds": [100, 130],
+    "scores": [0, 50, 100]
+  },
+  "Net Stable Funding Ratio": {
+    "thresholds": [100, 110],
+    "scores": [0, 40, 100]
+  },
+  "Tier 1 Ratio": {
+    "thresholds": [12, 14],
+    "scores": [0, 60, 100]
+  }
+}

@@ -1,0 +1,6 @@
+Indicator,Value,Score,Confidence,Class,Total Score
+CET1 Ratio,13.2,90,0.55,Good,360
+Total Capital Ratio,16.5,90,0.52,Good,360
+Liquidity Coverage Ratio,127.0,50,0.2,Warning,360
+Net Stable Funding Ratio,109.0,40,0.2,Warning,360
+Tier 1 Ratio,14.4,90,0.51,Good,360

@@ -1,0 +1,27 @@
+{
+    "meta": {
+        "bank_name": "KBC Group",
+        "period": "1989-03-31 to 2024-12-31",
+        "source_file": "2938_KBC_Group.xlsx"
+    },
+    "indicators": {
+        "Loan-to-Deposit Ratio": 1.0381383783881875,
+        "Cash Shortage Proxy": 1.253942979430859,
+        "Duration Gap": -0.026666494696685503,
+        "Core Deposit Mix Ratio": 0.2529801894600204,
+        "NSFR": 0.40732432432432425,
+        "OCI-based Losses to Equity": 3.4585784509996724,
+        "OCI-based Losses to Assets": 0.09459643066377853,
+        "FX Mismatch": 0.16808487588179435
+    },
+    "quality": {
+        "Loan-to-Deposit Ratio": "direct",
+        "Cash Shortage Proxy": "direct",
+        "Duration Gap": "proxy",
+        "Core Deposit Mix Ratio": "direct",
+        "NSFR": "direct",
+        "OCI-based Losses to Equity": "direct",
+        "OCI-based Losses to Assets": "direct",
+        "FX Mismatch": "proxy"
+    }
+}

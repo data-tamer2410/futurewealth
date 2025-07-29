@@ -1,0 +1,27 @@
+{
+    "meta": {
+        "bank_name": "Bank of China",
+        "period": "1987-12-31 to 2024-12-31",
+        "source_file": "916_Bank_of_China.xlsx"
+    },
+    "indicators": {
+        "Loan-to-Deposit Ratio": 1.9602454857851415,
+        "Cash Shortage Proxy": 1.5762869097330547,
+        "Duration Gap": -0.09799491616136721,
+        "Core Deposit Mix Ratio": 0.3851238423140549,
+        "NSFR": 0.22946052631578948,
+        "OCI-based Losses to Equity": 2.3371067604136617,
+        "OCI-based Losses to Assets": 0.07715860071608584,
+        "FX Mismatch": 0.008689975854127303
+    },
+    "quality": {
+        "Loan-to-Deposit Ratio": "direct",
+        "Cash Shortage Proxy": "direct",
+        "Duration Gap": "proxy",
+        "Core Deposit Mix Ratio": "direct",
+        "NSFR": "direct",
+        "OCI-based Losses to Equity": "direct",
+        "OCI-based Losses to Assets": "direct",
+        "FX Mismatch": "proxy"
+    }
+}

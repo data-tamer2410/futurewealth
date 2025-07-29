@@ -1,0 +1,27 @@
+{
+    "meta": {
+        "bank_name": "First Abu Dhabi Bank",
+        "period": "1988-12-31 to 2024-12-31",
+        "source_file": "3404_First_Abu_Dhabi_Bank.xlsx"
+    },
+    "indicators": {
+        "Loan-to-Deposit Ratio": 4.662456534693052,
+        "Cash Shortage Proxy": 3.5719432114754377,
+        "Duration Gap": -0.02891367286961701,
+        "Core Deposit Mix Ratio": 0.16136514597368118,
+        "NSFR": 0.11403783783783784,
+        "OCI-based Losses to Equity": 1.247157490824209,
+        "OCI-based Losses to Assets": 0.056853646086332234,
+        "FX Mismatch": 0.035167649414745074
+    },
+    "quality": {
+        "Loan-to-Deposit Ratio": "direct",
+        "Cash Shortage Proxy": "direct",
+        "Duration Gap": "proxy",
+        "Core Deposit Mix Ratio": "direct",
+        "NSFR": "direct",
+        "OCI-based Losses to Equity": "direct",
+        "OCI-based Losses to Assets": "direct",
+        "FX Mismatch": "proxy"
+    }
+}

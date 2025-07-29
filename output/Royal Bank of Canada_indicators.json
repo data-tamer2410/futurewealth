@@ -1,0 +1,27 @@
+{
+    "meta": {
+        "bank_name": "Royal Bank of Canada",
+        "period": "1988-10-31 to 2024-10-31",
+        "source_file": "3932_Royal_Bank_of_Canada.xlsx"
+    },
+    "indicators": {
+        "Loan-to-Deposit Ratio": 2.015917167457969,
+        "Cash Shortage Proxy": 1.214195386026847,
+        "Duration Gap": -0.005394427093566019,
+        "Core Deposit Mix Ratio": 0.31946527788178997,
+        "NSFR": 0.12297297297297297,
+        "OCI-based Losses to Equity": 1.1727762078842974,
+        "OCI-based Losses to Assets": 0.027583534758906025,
+        "FX Mismatch": 0.04048540812167025
+    },
+    "quality": {
+        "Loan-to-Deposit Ratio": "direct",
+        "Cash Shortage Proxy": "direct",
+        "Duration Gap": "proxy",
+        "Core Deposit Mix Ratio": "direct",
+        "NSFR": "direct",
+        "OCI-based Losses to Equity": "direct",
+        "OCI-based Losses to Assets": "direct",
+        "FX Mismatch": "proxy"
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "meta": {
+        "bank_name": "Lloyds TSB Bank",
+        "period": "1999-12-31 to 2005-12-31",
+        "source_file": "3166_Lloyds_TSB_Bank.xlsx"
+    },
+    "indicators": {
+        "Loan-to-Deposit Ratio": null,
+        "Cash Shortage Proxy": null,
+        "Duration Gap": null,
+        "Core Deposit Mix Ratio": null,
+        "NSFR": 0.0,
+        "OCI-based Losses to Equity": null,
+        "OCI-based Losses to Assets": 0.0,
+        "FX Mismatch": null
+    },
+    "quality": {
+        "Loan-to-Deposit Ratio": "direct",
+        "Cash Shortage Proxy": "direct",
+        "Duration Gap": "proxy",
+        "Core Deposit Mix Ratio": "direct",
+        "NSFR": "direct",
+        "OCI-based Losses to Equity": "direct",
+        "OCI-based Losses to Assets": "direct",
+        "FX Mismatch": "proxy"
+    }
+}

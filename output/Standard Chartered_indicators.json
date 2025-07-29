@@ -1,0 +1,27 @@
+{
+    "meta": {
+        "bank_name": "Standard Chartered",
+        "period": "1988-12-31 to 2024-12-31",
+        "source_file": "4367_Standard_Chartered.xlsx"
+    },
+    "indicators": {
+        "Loan-to-Deposit Ratio": 1.19185379428259,
+        "Cash Shortage Proxy": 3.5344572271651598,
+        "Duration Gap": 0.03525099501130012,
+        "Core Deposit Mix Ratio": 0.244500253527095,
+        "NSFR": 0.10886486486486485,
+        "OCI-based Losses to Equity": 2.5085135494109783,
+        "OCI-based Losses to Assets": 0.06562128823503138,
+        "FX Mismatch": 0.04266136725201819
+    },
+    "quality": {
+        "Loan-to-Deposit Ratio": "direct",
+        "Cash Shortage Proxy": "direct",
+        "Duration Gap": "proxy",
+        "Core Deposit Mix Ratio": "direct",
+        "NSFR": "direct",
+        "OCI-based Losses to Equity": "direct",
+        "OCI-based Losses to Assets": "direct",
+        "FX Mismatch": "proxy"
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "meta": {
+        "bank_name": "Nord LB Luxembourg",
+        "period": "2000-12-31 to 2024-12-31",
+        "source_file": "3537_Nord_LB_Luxembourg.xlsx"
+    },
+    "indicators": {
+        "Loan-to-Deposit Ratio": 8.026063115352258,
+        "Cash Shortage Proxy": 0.27742957789528466,
+        "Duration Gap": -0.1489262046442265,
+        "Core Deposit Mix Ratio": 0.011164276253020416,
+        "NSFR": 0.0,
+        "OCI-based Losses to Equity": 5.563039817830376,
+        "OCI-based Losses to Assets": 0.152882077045188,
+        "FX Mismatch": 0.3720771797368177
+    },
+    "quality": {
+        "Loan-to-Deposit Ratio": "direct",
+        "Cash Shortage Proxy": "direct",
+        "Duration Gap": "proxy",
+        "Core Deposit Mix Ratio": "direct",
+        "NSFR": "direct",
+        "OCI-based Losses to Equity": "direct",
+        "OCI-based Losses to Assets": "direct",
+        "FX Mismatch": "proxy"
+    }
+}

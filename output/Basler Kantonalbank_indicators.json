@@ -1,0 +1,27 @@
+{
+    "meta": {
+        "bank_name": "Basler Kantonalbank",
+        "period": "1988-12-31 to 2024-12-31",
+        "source_file": "1275_Basler_Kantonalbank.xlsx"
+    },
+    "indicators": {
+        "Loan-to-Deposit Ratio": 2.0765632645536303,
+        "Cash Shortage Proxy": 1.9468169937205966,
+        "Duration Gap": 0.053074565012273395,
+        "Core Deposit Mix Ratio": 0.10980755648584364,
+        "NSFR": 0.1345162162162162,
+        "OCI-based Losses to Equity": 0.38201376576754326,
+        "OCI-based Losses to Assets": 0.0112845871465672,
+        "FX Mismatch": 0.05808956632018051
+    },
+    "quality": {
+        "Loan-to-Deposit Ratio": "direct",
+        "Cash Shortage Proxy": "direct",
+        "Duration Gap": "proxy",
+        "Core Deposit Mix Ratio": "direct",
+        "NSFR": "direct",
+        "OCI-based Losses to Equity": "direct",
+        "OCI-based Losses to Assets": "direct",
+        "FX Mismatch": "proxy"
+    }
+}

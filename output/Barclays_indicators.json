@@ -1,0 +1,27 @@
+{
+    "meta": {
+        "bank_name": "Barclays",
+        "period": "1987-12-31 to 2024-12-31",
+        "source_file": "1258_Barclays.xlsx"
+    },
+    "indicators": {
+        "Loan-to-Deposit Ratio": 1.478536976480684,
+        "Cash Shortage Proxy": 6.5246699277997635,
+        "Duration Gap": 0.04423813307773895,
+        "Core Deposit Mix Ratio": 0.16315152420242754,
+        "NSFR": 0.13578947368421054,
+        "OCI-based Losses to Equity": 1.3091817745737473,
+        "OCI-based Losses to Assets": 0.025811743508571162,
+        "FX Mismatch": 0.09028703276911271
+    },
+    "quality": {
+        "Loan-to-Deposit Ratio": "direct",
+        "Cash Shortage Proxy": "direct",
+        "Duration Gap": "proxy",
+        "Core Deposit Mix Ratio": "direct",
+        "NSFR": "direct",
+        "OCI-based Losses to Equity": "direct",
+        "OCI-based Losses to Assets": "direct",
+        "FX Mismatch": "proxy"
+    }
+}

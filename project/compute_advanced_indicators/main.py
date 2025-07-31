@@ -5,12 +5,16 @@ import sys
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
 
+from rich.console import Console
+from rich.progress import track
 import pandas as pd
 import argparse
 from project.compute_advanced_indicators.utils import (
     save_json,
     read_bank_data,
     save_bank_indicators_to_table,
+    detect_flags,
+    create_summary,
 )
 from project.compute_advanced_indicators.indicators.cash_shortage_proxy import (
     compute_cash_shortage_proxy,
@@ -34,6 +38,8 @@ from project.compute_advanced_indicators.indicators.oci_based_unrealized_losses 
     compute_oci_based_unrealized_losses_to_assets,
     compute_oci_based_unrealized_losses_to_equity,
 )
+
+console = Console()
 
 
 # === Main Function to Compute Indicators ===
@@ -99,6 +105,11 @@ def compute_advanced_indicators(
         "quality"
     ]
 
+    indicators = {k: round(v, 2) for k, v in indicators.items()}
+
+    # Flags detection
+    flags = detect_flags(indicators)
+
     # Period detection
     if date_col_name is not None and date_col_name in df.columns:
         df[date_col_name] = pd.to_datetime(df[date_col_name])
@@ -126,6 +137,7 @@ def compute_advanced_indicators(
         },
         "indicators": indicators,
         "quality": quality,
+        "flags": flags,
     }
 
 
@@ -140,7 +152,7 @@ def main(
     os.makedirs(output_dir, exist_ok=True)
 
     result_bank_indicators = []
-    for file in os.listdir(input_dir):
+    for file in track(os.listdir(input_dir), description="Processing bank data..."):
         df = read_bank_data(os.path.join(input_dir, file))
         bank_indicators = compute_advanced_indicators(
             df,
@@ -157,6 +169,7 @@ def main(
     save_bank_indicators_to_table(
         result_bank_indicators, f"{output_dir}/{bank_indicators_table}"
     )
+    create_summary(result_bank_indicators, output_dir, console)
 
 
 if __name__ == "__main__":

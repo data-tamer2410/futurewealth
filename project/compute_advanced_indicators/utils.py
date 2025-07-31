@@ -1,5 +1,90 @@
 import pandas as pd
 import json
+import os
+from rich.table import Table
+from rich import box
+from rich.console import Console
+
+THRESHOLDS = {
+    "Loan_to_Deposit_Ratio": {"threshold": 1.5, "sign": ">"},
+    "OCI_Based_Unrealized_Losses_to_Assets": {"threshold": -0.10, "sign": "<"},
+    "OCI_Based_Unrealized_Losses_to_Equity": {"threshold": -0.30, "sign": "<"},
+    "Net_Stable_Funding_Ratio": {"threshold": 1.0, "sign": "<"},
+    "FX_Mismatch": {"threshold": 0.20, "sign": ">"},
+    "Duration_Gap": {"threshold": 3.0, "sign": ">"},
+    "Cash_Shortage_Proxy": {"threshold": 0.5, "sign": ">"},
+    "Core_Deposit_Mix_Ratio": {"threshold": 0.2, "sign": "<"},
+}
+
+
+def detect_flags(indicators: dict) -> dict:
+    """
+    Detect flags based on computed indicators and predefined thresholds.
+
+    True is Bad, False is Good.
+    """
+    flags = {}
+    for key, value in indicators.items():
+        threshold = THRESHOLDS[key]["threshold"]
+        sign = THRESHOLDS[key]["sign"]
+        if value is None or pd.isna(value):
+            flags[key] = None
+            continue
+
+        if sign == "<":
+            # Explicitly convert to built-in Python bool to avoid issues with NumPy types during JSON serialization
+            flags[key] = True if value < threshold else False
+        else:
+            flags[key] = True if value > threshold else False
+
+    return flags
+
+
+def create_summary(
+    result_bank_indicators: pd.DataFrame, output_dir: str, console: Console
+) -> None:
+    """Create a summary of the top 5 banks with the most risk based on threshold breaches."""
+    summary_rows = []
+    for bank in result_bank_indicators:
+        flags = bank["flags"]
+        indicators = bank["indicators"]
+        bank_name = bank["meta"].get("bank_name", "Unknown Bank")
+        not_none_flags = {k: v for k, v in flags.items() if v is not None}
+        count_flags = sum(not_none_flags.values())
+        flagged = ", ".join(
+            [f"{k} ({indicators[k]})" for k, v in not_none_flags.items() if v]
+        )
+        summary_rows.append((bank_name, count_flags, flagged))
+
+    summary_df = pd.DataFrame(
+        summary_rows, columns=["bank_name", "flag_count", "flagged_indicators"]
+    )
+    summary_df = summary_df.sort_values("flag_count", ascending=False).head(5)
+
+    summary_file = os.path.join(output_dir, "summary.txt")
+    with open(summary_file, "w") as f:
+        f.write("Top 5 Most Risky Banks Based on Threshold Breaches:\n\n")
+        for _, row in summary_df.iterrows():
+            f.write(
+                f"{row['bank_name']} — Flags: {row['flag_count']} | Indicators: {row['flagged_indicators']}\n"
+            )
+
+    table = Table(
+        title="Top 5 Most Risky Banks",
+        title_style="bold magenta",
+        box=box.SIMPLE_HEAVY,
+    )
+    table.add_column("Bank Name", style="cyan")
+    table.add_column("Flags Count", justify="right", style="red")
+    table.add_column("Flagged Indicators", style="yellow")
+
+    for _, row in summary_df.iterrows():
+        table.add_row(
+            row["bank_name"], str(row["flag_count"]), row["flagged_indicators"]
+        )
+
+    console.print("\n\n")
+    console.print(table)
 
 
 def cols_exist_and_not_na(df: pd.DataFrame, cols: list[str]) -> bool:
@@ -41,6 +126,7 @@ def save_bank_indicators_to_table(
         row.update(indicator["meta"])
         row.update(indicator["indicators"])
         row.update({f"{k}_quality": i for k, i in indicator["quality"].items()})
+        row.update({f"{k}_flag": i for k, i in indicator["flags"].items()})
         flattened_data.append(row)
 
     df = pd.DataFrame(flattened_data)

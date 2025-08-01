@@ -26,7 +26,19 @@ def compute_cash_shortage_proxy(df: pd.DataFrame) -> dict:
         ).mean()
         result["quality"] = "direct"
     else:
-        result["indicator"] = None
+        result["indicator"] = proxy_cash_shortage(df)
         result["quality"] = "proxy"
 
     return result
+
+
+def proxy_cash_shortage(df: pd.DataFrame) -> float | None:
+    """Proxy for Cash Shortage based on Cash to Deposits Ratio"""
+    if cols_exist_and_not_na(
+        df, ["Cash and Balance at Central Bank(s) $m", "Gross Total Deposits $m"]
+    ):
+        return (
+            df["Cash and Balance at Central Bank(s) $m"]
+            / df["Gross Total Deposits $m"].replace(0, np.nan)
+        ).mean()
+    return None

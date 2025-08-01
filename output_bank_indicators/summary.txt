@@ -1,0 +1,7 @@
+Top 5 Most Risky Banks Based on Threshold Breaches:
+
+Barclays — Flags: 5 | Indicators: Cash_Shortage_Proxy (6.52), Core_Deposit_Mix_Ratio (0.16), Net_Stable_Funding_Ratio (0.14), Core_Deposit_Stability (0.16), Derivatives_Exposure (0.19)
+Norddeutsche Landesbank Luxembourg — Flags: 5 | Indicators: Core_Deposit_Mix_Ratio (0.01), FX_Mismatch (0.37), Loan_to_Deposit_Ratio (8.03), Net_Stable_Funding_Ratio (0.0), Core_Deposit_Stability (0.01)
+First Abu Dhabi Bank — Flags: 5 | Indicators: Cash_Shortage_Proxy (3.57), Core_Deposit_Mix_Ratio (0.16), Loan_to_Deposit_Ratio (4.66), Net_Stable_Funding_Ratio (0.11), Core_Deposit_Stability (0.16)
+Basler Kantonalbank — Flags: 5 | Indicators: Cash_Shortage_Proxy (1.95), Core_Deposit_Mix_Ratio (0.11), Loan_to_Deposit_Ratio (2.08), Net_Stable_Funding_Ratio (0.13), Core_Deposit_Stability (0.11)
+Royal Bank of Canada — Flags: 4 | Indicators: Cash_Shortage_Proxy (1.21), Loan_to_Deposit_Ratio (2.02), Net_Stable_Funding_Ratio (0.12), Core_Deposit_Stability (0.32)

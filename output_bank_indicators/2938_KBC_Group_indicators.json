@@ -1,0 +1,55 @@
+{
+    "meta": {
+        "bank_name": "KBC Group",
+        "period": "1989-03-31 to 2024-12-31",
+        "source_file": "2938_KBC_Group.xlsx"
+    },
+    "indicators": {
+        "Cash_Shortage_Proxy": 1.25,
+        "Core_Deposit_Mix_Ratio": 0.25,
+        "Duration_Gap": -0.03,
+        "FX_Mismatch": 0.17,
+        "Loan_to_Deposit_Ratio": 1.04,
+        "Net_Stable_Funding_Ratio": 0.41,
+        "OCI_Based_Unrealized_Losses_to_Assets": 0.22,
+        "OCI_Based_Unrealized_Losses_to_Equity": 1.5,
+        "Core_Deposit_Stability": 0.25,
+        "Cost_of_Risk": 0.0,
+        "Derivatives_Exposure": 0.03,
+        "Fair_Value_Gains_Losses": -141.72,
+        "Non_Recurring_Income_Ratio": -0.0,
+        "RWA_to_Assets": 0.15
+    },
+    "quality": {
+        "Cash_Shortage_Proxy": "direct",
+        "Core_Deposit_Mix_Ratio": "direct",
+        "Duration_Gap": "proxy",
+        "FX_Mismatch": "proxy",
+        "Loan_to_Deposit_Ratio": "direct",
+        "Net_Stable_Funding_Ratio": "direct",
+        "OCI_Based_Unrealized_Losses_to_Assets": "direct",
+        "OCI_Based_Unrealized_Losses_to_Equity": "direct",
+        "Core_Deposit_Stability": "direct",
+        "Cost_of_Risk": "direct",
+        "Derivatives_Exposure": "direct",
+        "Fair_Value_Gains_Losses": "direct",
+        "Non_Recurring_Income_Ratio": "direct",
+        "RWA_to_Assets": "direct"
+    },
+    "flags": {
+        "Cash_Shortage_Proxy": true,
+        "Core_Deposit_Mix_Ratio": false,
+        "Duration_Gap": false,
+        "FX_Mismatch": false,
+        "Loan_to_Deposit_Ratio": false,
+        "Net_Stable_Funding_Ratio": true,
+        "OCI_Based_Unrealized_Losses_to_Assets": false,
+        "OCI_Based_Unrealized_Losses_to_Equity": false,
+        "Core_Deposit_Stability": true,
+        "Cost_of_Risk": false,
+        "Derivatives_Exposure": false,
+        "Fair_Value_Gains_Losses": true,
+        "Non_Recurring_Income_Ratio": false,
+        "RWA_to_Assets": false
+    }
+}

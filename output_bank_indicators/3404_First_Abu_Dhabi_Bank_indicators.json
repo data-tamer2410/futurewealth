@@ -1,0 +1,55 @@
+{
+    "meta": {
+        "bank_name": "First Abu Dhabi Bank",
+        "period": "1988-12-31 to 2024-12-31",
+        "source_file": "3404_First_Abu_Dhabi_Bank.xlsx"
+    },
+    "indicators": {
+        "Cash_Shortage_Proxy": 3.57,
+        "Core_Deposit_Mix_Ratio": 0.16,
+        "Duration_Gap": -0.03,
+        "FX_Mismatch": 0.04,
+        "Loan_to_Deposit_Ratio": 4.66,
+        "Net_Stable_Funding_Ratio": 0.11,
+        "OCI_Based_Unrealized_Losses_to_Assets": 0.69,
+        "OCI_Based_Unrealized_Losses_to_Equity": 0.73,
+        "Core_Deposit_Stability": 0.16,
+        "Cost_of_Risk": 0.01,
+        "Derivatives_Exposure": 0.02,
+        "Fair_Value_Gains_Losses": 4.64,
+        "Non_Recurring_Income_Ratio": 0.01,
+        "RWA_to_Assets": 0.27
+    },
+    "quality": {
+        "Cash_Shortage_Proxy": "direct",
+        "Core_Deposit_Mix_Ratio": "direct",
+        "Duration_Gap": "proxy",
+        "FX_Mismatch": "proxy",
+        "Loan_to_Deposit_Ratio": "direct",
+        "Net_Stable_Funding_Ratio": "direct",
+        "OCI_Based_Unrealized_Losses_to_Assets": "direct",
+        "OCI_Based_Unrealized_Losses_to_Equity": "direct",
+        "Core_Deposit_Stability": "direct",
+        "Cost_of_Risk": "direct",
+        "Derivatives_Exposure": "direct",
+        "Fair_Value_Gains_Losses": "direct",
+        "Non_Recurring_Income_Ratio": "direct",
+        "RWA_to_Assets": "direct"
+    },
+    "flags": {
+        "Cash_Shortage_Proxy": true,
+        "Core_Deposit_Mix_Ratio": true,
+        "Duration_Gap": false,
+        "FX_Mismatch": false,
+        "Loan_to_Deposit_Ratio": true,
+        "Net_Stable_Funding_Ratio": true,
+        "OCI_Based_Unrealized_Losses_to_Assets": false,
+        "OCI_Based_Unrealized_Losses_to_Equity": false,
+        "Core_Deposit_Stability": true,
+        "Cost_of_Risk": false,
+        "Derivatives_Exposure": false,
+        "Fair_Value_Gains_Losses": false,
+        "Non_Recurring_Income_Ratio": false,
+        "RWA_to_Assets": false
+    }
+}

@@ -6,14 +6,34 @@ from rich import box
 from rich.console import Console
 
 THRESHOLDS = {
+    # Liquidity: if > 1.5, the bank has issued more loans than it has collected in deposits
     "Loan_to_Deposit_Ratio": {"threshold": 1.5, "sign": ">"},
+    # Unrealized losses to assets: below -10% — significant risk
     "OCI_Based_Unrealized_Losses_to_Assets": {"threshold": -0.10, "sign": "<"},
+    # Unrealized losses to equity: below -30% — critical
     "OCI_Based_Unrealized_Losses_to_Equity": {"threshold": -0.30, "sign": "<"},
+    # NSFR: < 1.0 means stable funding covers less than 100% of assets
     "Net_Stable_Funding_Ratio": {"threshold": 1.0, "sign": "<"},
+    # FX mismatch > 20% of equity — elevated risk
     "FX_Mismatch": {"threshold": 0.20, "sign": ">"},
+    # Duration Gap: more than 3 years — high interest rate sensitivity risk
     "Duration_Gap": {"threshold": 3.0, "sign": ">"},
+    # Cash + interbank assets / short-term liabilities > 50% — liquidity shortage
     "Cash_Shortage_Proxy": {"threshold": 0.5, "sign": ">"},
+    # Share of retail deposits < 20% — unstable funding base
     "Core_Deposit_Mix_Ratio": {"threshold": 0.2, "sign": "<"},
+    # Core deposit stability < 50% — potentially risky deposit structure
+    "Core_Deposit_Stability": {"threshold": 0.5, "sign": "<"},
+    # Cost of risk > 2% — high level of credit losses
+    "Cost_of_Risk": {"threshold": 0.02, "sign": ">"},
+    # Derivatives exposure > 10% of assets — elevated market risk
+    "Derivatives_Exposure": {"threshold": 0.10, "sign": ">"},
+    # Fair value gains/losses < -5% of income — negative signal
+    "Fair_Value_Gains_Losses": {"threshold": -0.05, "sign": "<"},
+    # Share of non-recurring income > 10% — high dependency on unstable sources
+    "Non_Recurring_Income_Ratio": {"threshold": 0.10, "sign": ">"},
+    # RWA / Total Assets > 80% — high-risk asset profile
+    "RWA_to_Assets": {"threshold": 0.80, "sign": ">"},
 }
 
 

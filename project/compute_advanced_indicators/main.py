@@ -38,6 +38,25 @@ from project.compute_advanced_indicators.indicators.oci_based_unrealized_losses 
     compute_oci_based_unrealized_losses_to_assets,
     compute_oci_based_unrealized_losses_to_equity,
 )
+from project.compute_advanced_indicators.indicators.core_deposit_stability import (
+    compute_core_deposit_stability,
+)
+from project.compute_advanced_indicators.indicators.cost_of_risk import (
+    compute_cost_of_risk,
+)
+from project.compute_advanced_indicators.indicators.derivatives_exposure import (
+    compute_derivatives_exposure,
+)
+from project.compute_advanced_indicators.indicators.fair_value_gains_losses import (
+    compute_fair_value_gains_losses,
+)
+from project.compute_advanced_indicators.indicators.non_recurring_income_ratio import (
+    compute_non_recurring_income_ratio,
+)
+from project.compute_advanced_indicators.indicators.rwa_to_assets import (
+    compute_rwa_to_assets,
+)
+
 
 console = Console()
 
@@ -104,6 +123,36 @@ def compute_advanced_indicators(
     quality["OCI_Based_Unrealized_Losses_to_Equity"] = oci_unrealized_losses_equity[
         "quality"
     ]
+
+    # 8. Core Deposit Stability
+    indicator_data = compute_core_deposit_stability(df)
+    indicators["Core_Deposit_Stability"] = indicator_data["indicator"]
+    quality["Core_Deposit_Stability"] = indicator_data["quality"]
+
+    # 9. Cost of Risk
+    indicator_data = compute_cost_of_risk(df)
+    indicators["Cost_of_Risk"] = indicator_data["indicator"]
+    quality["Cost_of_Risk"] = indicator_data["quality"]
+
+    # 10. Derivatives Exposure
+    indicator_data = compute_derivatives_exposure(df)
+    indicators["Derivatives_Exposure"] = indicator_data["indicator"]
+    quality["Derivatives_Exposure"] = indicator_data["quality"]
+
+    # 11. Fair Value Gains/Losses
+    indicator_data = compute_fair_value_gains_losses(df)
+    indicators["Fair_Value_Gains_Losses"] = indicator_data["indicator"]
+    quality["Fair_Value_Gains_Losses"] = indicator_data["quality"]
+
+    # 12. Non-Recurring Income Ratio
+    indicator_data = compute_non_recurring_income_ratio(df)
+    indicators["Non_Recurring_Income_Ratio"] = indicator_data["indicator"]
+    quality["Non_Recurring_Income_Ratio"] = indicator_data["quality"]
+
+    # 13. RWA to Assets
+    indicator_data = compute_rwa_to_assets(df)
+    indicators["RWA_to_Assets"] = indicator_data["indicator"]
+    quality["RWA_to_Assets"] = indicator_data["quality"]
 
     indicators = {k: round(v, 2) for k, v in indicators.items()}
 

@@ -14,7 +14,14 @@ def compute_oci(df: pd.DataFrame) -> float | None:
         )
         return oci.mean()
     else:
-        return None
+        return proxy_oci(df)
+
+
+def proxy_oci(df: pd.DataFrame) -> float | None:
+    """Proxy for Other Comprehensive Income based on Available-for-Sale Securities"""
+    if cols_exist_and_not_na(df, ["Available-for-Sale Securities $m"]):
+        return df["Available-for-Sale Securities $m"].mean()
+    return None
 
 
 def compute_oci_based_unrealized_losses_to_equity(df: pd.DataFrame) -> dict | None:

@@ -1,0 +1,107 @@
+[
+    {
+        "condition_warning": "Loan_to_Deposit_Ratio > 1.13",
+        "condition_critical": "Loan_to_Deposit_Ratio > 1.13",
+        "rationale": "High Loan-to-Deposit Ratio indicates potential liquidity stress."
+    },
+    {
+        "condition_warning": "Net_Stable_Funding_Ratio < 0.00",
+        "condition_critical": "Net_Stable_Funding_Ratio < 0.00",
+        "rationale": "NSFR below internal history hints funding stress."
+    },
+    {
+        "condition_warning": "Cash_Shortage_Proxy > 1.2540",
+        "condition_critical": "Cash_Shortage_Proxy > 2.3640",
+        "rationale": "Deterioration in short-term liquidity conditions."
+    },
+    {
+        "condition_warning": "Core_Deposit_Mix_Ratio < 0.0000",
+        "condition_critical": "Core_Deposit_Mix_Ratio < 0.0000",
+        "rationale": "Low share of core deposits weakens funding stability."
+    },
+    {
+        "condition_warning": "Core_Deposit_Stability < 0.0000",
+        "condition_critical": "Core_Deposit_Stability < 0.0000",
+        "rationale": "Declining deposit stability increases funding risk."
+    },
+    {
+        "condition_warning": "abs(Duration_Gap) > 0.01",
+        "condition_critical": "abs(Duration_Gap) > 0.08",
+        "rationale": "Large duration gap increases interest rate risk (IRRBB)."
+    },
+    {
+        "condition_warning": "Derivatives_Exposure > 0.0434",
+        "condition_critical": "Derivatives_Exposure > 0.0803",
+        "rationale": "Higher derivatives exposure may raise market/counterparty risk."
+    },
+    {
+        "condition_warning": "FX_Mismatch > 0.1524",
+        "condition_critical": "FX_Mismatch > 0.3693",
+        "rationale": "FX asset/liability imbalance indicates currency risk."
+    },
+    {
+        "condition_warning": "Fair_Value_Gains_Losses < 0.0000",
+        "condition_critical": "Fair_Value_Gains_Losses < -41.9760",
+        "rationale": "Negative fair-value remeasurements indicate valuation pressure."
+    },
+    {
+        "condition_warning": "RWA_to_Assets > 0.3258",
+        "condition_critical": "RWA_to_Assets > 0.3842",
+        "rationale": "High RWA density implies risk-heavy balance sheet."
+    },
+    {
+        "condition_warning": "OCI_Based_Unrealized_Losses_to_Equity > 3.9059",
+        "condition_critical": "OCI_Based_Unrealized_Losses_to_Equity > 4.0574",
+        "rationale": "Large OCI-based unrealized losses weigh on capital."
+    },
+    {
+        "condition_warning": "OCI_Based_Unrealized_Losses_to_Assets > 0.2102",
+        "condition_critical": "OCI_Based_Unrealized_Losses_to_Assets > 0.2358",
+        "rationale": "Large OCI-based unrealized losses relative to assets signal valuation risk."
+    },
+    {
+        "condition_warning": "Cost_of_Risk > 0.0069",
+        "condition_critical": "Cost_of_Risk > 0.0093",
+        "rationale": "Rising cost of risk indicates credit deterioration."
+    },
+    {
+        "condition_warning": "Non_Recurring_Income_Ratio > 0.0022",
+        "condition_critical": "Non_Recurring_Income_Ratio > 0.0330",
+        "rationale": "High share of non-recurring income undermines earnings quality."
+    },
+    {
+        "condition_warning": "(Loan_to_Deposit_Ratio > 1.13) and (Net_Stable_Funding_Ratio < 0.00)",
+        "condition_critical": "(Loan_to_Deposit_Ratio > 1.13) and (Net_Stable_Funding_Ratio < 0.00)",
+        "rationale": "High LDR together with low NSFR flags elevated liquidity stress."
+    },
+    {
+        "condition_warning": "(RWA_to_Assets > 0.3258) and (OCI_Based_Unrealized_Losses_to_Equity > 3.9059)",
+        "condition_critical": "(RWA_to_Assets > 0.3842) and (OCI_Based_Unrealized_Losses_to_Equity > 4.0574)",
+        "rationale": "Risk-dense balance sheet combined with sizable OCI losses points to capital pressure."
+    },
+    {
+        "condition_warning": "(Cash_Shortage_Proxy > 1.2540) and (Core_Deposit_Stability < 0.0000)",
+        "condition_critical": "(Cash_Shortage_Proxy > 2.3640) and (Core_Deposit_Stability < 0.0000)",
+        "rationale": "Short-term liquidity strain paired with weak deposit stability."
+    },
+    {
+        "condition_warning": "(abs(Duration_Gap) > 0.01) and (Fair_Value_Gains_Losses < 0.0000)",
+        "condition_critical": "(abs(Duration_Gap) > 0.08) and (Fair_Value_Gains_Losses < -41.9760)",
+        "rationale": "IRRBB exposure coupled with valuation losses."
+    },
+    {
+        "condition_warning": "(FX_Mismatch > 0.1524) and (Derivatives_Exposure > 0.0434)",
+        "condition_critical": "(FX_Mismatch > 0.3693) and (Derivatives_Exposure > 0.0803)",
+        "rationale": "Elevated FX imbalance together with sizable derivatives exposure."
+    },
+    {
+        "condition_warning": "(Non_Recurring_Income_Ratio > 0.0022) and (Fair_Value_Gains_Losses < 0.0000)",
+        "condition_critical": "(Non_Recurring_Income_Ratio > 0.0330) and (Fair_Value_Gains_Losses < -41.9760)",
+        "rationale": "Large non-recurring income share alongside negative FV signals weak earnings quality."
+    },
+    {
+        "condition_warning": "(Core_Deposit_Mix_Ratio < 0.0000) and (Net_Stable_Funding_Ratio < 0.00)",
+        "condition_critical": "(Core_Deposit_Mix_Ratio < 0.0000) and (Net_Stable_Funding_Ratio < 0.00)",
+        "rationale": "Weak core funding base combined with low NSFR."
+    }
+]

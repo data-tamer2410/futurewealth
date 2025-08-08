@@ -9,6 +9,12 @@ from rich.console import Console
 from rich.progress import track
 import pandas as pd
 import argparse
+from project.compute_advanced_indicators.build_stresstest_rules import (
+    build_stresstest_rules,
+)
+from project.compute_advanced_indicators.build_correlation_matrix import (
+    build_and_save_correlation_matrix,
+)
 from project.compute_advanced_indicators.utils import (
     save_json,
     read_bank_data,
@@ -72,6 +78,7 @@ def compute_advanced_indicators(
     Compute financial indicators and return structured JSON for a bank.
     Automatically detects period based on available date columns or index.
     """
+    indicators_full = {}
     indicators = {}
     quality = {}
 
@@ -79,36 +86,45 @@ def compute_advanced_indicators(
 
     # 1. Cash Shortage Proxy
     indicator_data = compute_cash_shortage_proxy(df)
+    indicators_full["Cash_Shortage_Proxy"] = indicator_data["indicator_full"]
     indicators["Cash_Shortage_Proxy"] = indicator_data["indicator"]
     quality["Cash_Shortage_Proxy"] = indicator_data["quality"]
 
     # 2. Core Deposit Mix Ratio
     indicator_data = compute_core_deposit_mix_ratio(df)
+    indicators_full["Core_Deposit_Mix_Ratio"] = indicator_data["indicator_full"]
     indicators["Core_Deposit_Mix_Ratio"] = indicator_data["indicator"]
     quality["Core_Deposit_Mix_Ratio"] = indicator_data["quality"]
 
     # 3. Duration Gap
     indicator_data = compute_duration_gap(df)
+    indicators_full["Duration_Gap"] = indicator_data["indicator_full"]
     indicators["Duration_Gap"] = indicator_data["indicator"]
     quality["Duration_Gap"] = indicator_data["quality"]
 
     # 4. FX Mismatch
     indicator_data = compute_fx_mismatch(df)
+    indicators_full["FX_Mismatch"] = indicator_data["indicator_full"]
     indicators["FX_Mismatch"] = indicator_data["indicator"]
     quality["FX_Mismatch"] = indicator_data["quality"]
 
     # 5. Loan to Deposit Ratio
     indicator_data = compute_loan_to_deposit_ratio(df)
+    indicators_full["Loan_to_Deposit_Ratio"] = indicator_data["indicator_full"]
     indicators["Loan_to_Deposit_Ratio"] = indicator_data["indicator"]
     quality["Loan_to_Deposit_Ratio"] = indicator_data["quality"]
 
     # 6. Net Stable Funding Ratio
     indicator_data = compute_net_stable_funding_ratio(df)
+    indicators_full["Net_Stable_Funding_Ratio"] = indicator_data["indicator_full"]
     indicators["Net_Stable_Funding_Ratio"] = indicator_data["indicator"]
     quality["Net_Stable_Funding_Ratio"] = indicator_data["quality"]
 
     # 7. OCI Based Unrealized Losses
     oci_unrealized_losses_assets = compute_oci_based_unrealized_losses_to_assets(df)
+    indicators_full["OCI_Based_Unrealized_Losses_to_Assets"] = (
+        oci_unrealized_losses_assets["indicator_full"]
+    )
     indicators["OCI_Based_Unrealized_Losses_to_Assets"] = oci_unrealized_losses_assets[
         "indicator"
     ]
@@ -117,6 +133,9 @@ def compute_advanced_indicators(
     ]
 
     oci_unrealized_losses_equity = compute_oci_based_unrealized_losses_to_equity(df)
+    indicators_full["OCI_Based_Unrealized_Losses_to_Equity"] = (
+        oci_unrealized_losses_equity["indicator_full"]
+    )
     indicators["OCI_Based_Unrealized_Losses_to_Equity"] = oci_unrealized_losses_equity[
         "indicator"
     ]
@@ -126,33 +145,44 @@ def compute_advanced_indicators(
 
     # 8. Core Deposit Stability
     indicator_data = compute_core_deposit_stability(df)
+    indicators_full["Core_Deposit_Stability"] = indicator_data["indicator_full"]
     indicators["Core_Deposit_Stability"] = indicator_data["indicator"]
     quality["Core_Deposit_Stability"] = indicator_data["quality"]
 
     # 9. Cost of Risk
     indicator_data = compute_cost_of_risk(df)
+    indicators_full["Cost_of_Risk"] = indicator_data["indicator_full"]
     indicators["Cost_of_Risk"] = indicator_data["indicator"]
     quality["Cost_of_Risk"] = indicator_data["quality"]
 
     # 10. Derivatives Exposure
     indicator_data = compute_derivatives_exposure(df)
+    indicators_full["Derivatives_Exposure"] = indicator_data["indicator_full"]
     indicators["Derivatives_Exposure"] = indicator_data["indicator"]
     quality["Derivatives_Exposure"] = indicator_data["quality"]
 
     # 11. Fair Value Gains/Losses
     indicator_data = compute_fair_value_gains_losses(df)
+    indicators_full["Fair_Value_Gains_Losses"] = indicator_data["indicator_full"]
     indicators["Fair_Value_Gains_Losses"] = indicator_data["indicator"]
     quality["Fair_Value_Gains_Losses"] = indicator_data["quality"]
 
     # 12. Non-Recurring Income Ratio
     indicator_data = compute_non_recurring_income_ratio(df)
+    indicators_full["Non_Recurring_Income_Ratio"] = indicator_data["indicator_full"]
     indicators["Non_Recurring_Income_Ratio"] = indicator_data["indicator"]
     quality["Non_Recurring_Income_Ratio"] = indicator_data["quality"]
 
     # 13. RWA to Assets
     indicator_data = compute_rwa_to_assets(df)
+    indicators_full["RWA_to_Assets"] = indicator_data["indicator_full"]
     indicators["RWA_to_Assets"] = indicator_data["indicator"]
     quality["RWA_to_Assets"] = indicator_data["quality"]
+
+    for key, value in indicators_full.items():
+        if value is not None:
+            if value.empty:
+                indicators_full[key] = None
 
     indicators = {k: round(v, 2) for k, v in indicators.items()}
 
@@ -184,6 +214,7 @@ def compute_advanced_indicators(
             "period": period,
             "source_file": source_file,
         },
+        "indicators_full": indicators_full,
         "indicators": indicators,
         "quality": quality,
         "flags": flags,
@@ -213,6 +244,10 @@ def main(
 
         file = file.replace(".csv", "").replace(".xlsx", "")
         output_file = os.path.join(output_dir, f"{file}_indicators.json")
+        build_and_save_correlation_matrix(
+            bank_indicators, f"{output_dir}/correlation_matrices", file
+        )
+        build_stresstest_rules(bank_indicators, f"{output_dir}/stresstest_rules", file)
         save_json(bank_indicators, output_file)
 
     save_bank_indicators_to_table(

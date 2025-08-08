@@ -7,9 +7,13 @@ def compute_net_stable_funding_ratio(df: pd.DataFrame) -> dict:
 
     result = {}
     if cols_exist_and_not_na(df, ["Net Stable Funding Ratio %"]):
-        result["indicator"] = (df["Net Stable Funding Ratio %"] / 100.0).mean()
+        indicator = df["Net Stable Funding Ratio %"] / 100.0
+
+        result["indicator_full"] = indicator
+        result["indicator"] = indicator.mean()
         result["quality"] = "direct"
     else:
+        result["indicator_full"] = None
         result["indicator"] = None
         result["quality"] = "proxy"
 

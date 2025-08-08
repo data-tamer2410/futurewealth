@@ -115,6 +115,11 @@ def cols_exist_and_not_na(df: pd.DataFrame, cols: list[str]) -> bool:
 def save_json(data: dict, filename: str):
     """Save the computed indicators to a JSON file."""
 
+    for key, value in data["indicators_full"].items():
+        if value is not None:
+            value = [None if pd.isna(v) else v for v in value.tolist()]
+            data["indicators_full"][key] = value
+
     for key, item in data["indicators"].items():
         if pd.isna(item):
             data["indicators"][key] = None

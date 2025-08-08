@@ -1,0 +1,32 @@
+[
+    {
+        "condition_warning": "Net_Stable_Funding_Ratio < 0.00",
+        "condition_critical": "Net_Stable_Funding_Ratio < 0.00",
+        "rationale": "NSFR below internal history hints funding stress."
+    },
+    {
+        "condition_warning": "Derivatives_Exposure > 0.0000",
+        "condition_critical": "Derivatives_Exposure > 0.0000",
+        "rationale": "Higher derivatives exposure may raise market/counterparty risk."
+    },
+    {
+        "condition_warning": "Fair_Value_Gains_Losses < 0.0000",
+        "condition_critical": "Fair_Value_Gains_Losses < 0.0000",
+        "rationale": "Negative fair-value remeasurements indicate valuation pressure."
+    },
+    {
+        "condition_warning": "RWA_to_Assets > 0.0000",
+        "condition_critical": "RWA_to_Assets > 0.0000",
+        "rationale": "High RWA density implies risk-heavy balance sheet."
+    },
+    {
+        "condition_warning": "OCI_Based_Unrealized_Losses_to_Assets > 0.0000",
+        "condition_critical": "OCI_Based_Unrealized_Losses_to_Assets > 0.0000",
+        "rationale": "Large OCI-based unrealized losses relative to assets signal valuation risk."
+    },
+    {
+        "condition_warning": "(RWA_to_Assets > 0.0000) and (OCI_Based_Unrealized_Losses_to_Assets > 0.0000)",
+        "condition_critical": "(RWA_to_Assets > 0.0000) and (OCI_Based_Unrealized_Losses_to_Assets > 0.0000)",
+        "rationale": "Risk-dense balance sheet combined with sizable OCI losses points to capital pressure."
+    }
+]

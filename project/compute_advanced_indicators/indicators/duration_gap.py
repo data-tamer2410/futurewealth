@@ -10,18 +10,22 @@ def compute_duration_gap(df: pd.DataFrame) -> dict:
     if cols_exist_and_not_na(
         df, ["Avg Duration of Assets", "Avg Duration of Liabilities"]
     ):
-        result["indicator"] = (
-            df["Avg Duration of Assets"] - df["Avg Duration of Liabilities"]
-        ).mean()
+        indicator = df["Avg Duration of Assets"] - df["Avg Duration of Liabilities"]
+
+        result["indicator_full"] = indicator
+        result["indicator"] = indicator.mean()
         result["quality"] = "direct"
     else:
+        result["indicator_full"] = proxy_duration_gap(df, full=True)
         result["indicator"] = proxy_duration_gap(df)
         result["quality"] = "proxy"
 
     return result
 
 
-def proxy_duration_gap(df: pd.DataFrame) -> float | None:
+def proxy_duration_gap(
+    df: pd.DataFrame, full: bool = False
+) -> float | pd.Series | None:
     """Calculate Duration Gap using available data."""
 
     if cols_exist_and_not_na(
@@ -39,6 +43,10 @@ def proxy_duration_gap(df: pd.DataFrame) -> float | None:
         )
         long_term = df["Total Senior Debt $m"] + df["Subordinated Liabilities $m"]
         total_liab = df["Total Liabilities $m"].replace(0, np.nan)
-        return ((long_term - short_term) / total_liab).mean()
+        proxy = (long_term - short_term) / total_liab
+
+        if full:
+            return proxy
+        return proxy.mean()
 
     return None

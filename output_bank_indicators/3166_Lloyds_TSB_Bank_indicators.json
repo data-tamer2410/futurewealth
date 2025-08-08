@@ -4,6 +4,78 @@
         "period": "1999-12-31 to 2005-12-31",
         "source_file": "3166_Lloyds_TSB_Bank.xlsx"
     },
+    "indicators_full": {
+        "Cash_Shortage_Proxy": [
+            null,
+            null,
+            null
+        ],
+        "Core_Deposit_Mix_Ratio": [
+            null,
+            null,
+            null
+        ],
+        "Duration_Gap": [
+            null,
+            null,
+            null
+        ],
+        "FX_Mismatch": [
+            null,
+            null,
+            null
+        ],
+        "Loan_to_Deposit_Ratio": [
+            null,
+            null,
+            null
+        ],
+        "Net_Stable_Funding_Ratio": [
+            0.0,
+            0.0,
+            0.0
+        ],
+        "OCI_Based_Unrealized_Losses_to_Assets": [
+            0.0,
+            0.0,
+            null
+        ],
+        "OCI_Based_Unrealized_Losses_to_Equity": [
+            null,
+            null,
+            null
+        ],
+        "Core_Deposit_Stability": [
+            null,
+            null,
+            null
+        ],
+        "Cost_of_Risk": [
+            null,
+            null,
+            null
+        ],
+        "Derivatives_Exposure": [
+            0.0,
+            0.0,
+            null
+        ],
+        "Fair_Value_Gains_Losses": [
+            0,
+            0,
+            0
+        ],
+        "Non_Recurring_Income_Ratio": [
+            null,
+            null,
+            null
+        ],
+        "RWA_to_Assets": [
+            0.0,
+            0.0,
+            null
+        ]
+    },
     "indicators": {
         "Cash_Shortage_Proxy": null,
         "Core_Deposit_Mix_Ratio": null,
